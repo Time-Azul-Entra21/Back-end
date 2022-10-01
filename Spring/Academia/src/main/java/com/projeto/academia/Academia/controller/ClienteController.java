@@ -92,6 +92,35 @@ public class ClienteController {
 			
 		}
 		
+		@GetMapping("/idademaiorigual/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByIdadeGreaterThanEqual(@PathVariable ("idade") Integer idade ){
+			
+			return clienteRepository.findByIdadeGreaterThanEqual(idade);
+		}
+		
+		@GetMapping("/nomecomecando/{prefixo}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getStartWith(@PathVariable ("prefixo") String tantoFaz){
+			
+			return clienteRepository.findByNomeStartingWith(tantoFaz);
+		}
+		
+		//Que código grande pqp
+		@GetMapping("/nomecomecandoidademaiorigual/{prefixo}/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndIdadeGreaterThan(@PathVariable ("prefixo") String tantoFaz, @PathVariable("idade") Integer idade){
+			
+			return clienteRepository.findByNomeStartingWithAndIdadeGreaterThanEqual(tantoFaz, idade);
+		}
+		
+		@GetMapping("/idademenorigual/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByIdadeLessThanEqual(@PathVariable ("idade") Integer idade){
+			
+			return clienteRepository.findByIdadeLessThanEqual(idade);
+		}
+		
 		private void setMaturidadeNivel3(Cliente cliente) {
 
 			ArrayList<String> headers = new ArrayList();
