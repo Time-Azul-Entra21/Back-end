@@ -48,7 +48,7 @@ public class ClienteController {
 			return response;
 		}
 
-		// Get para obter um cliente por nome
+		// Get para obter um cliente por id
 		@GetMapping("/{id}")
 		@ResponseStatus(HttpStatus.OK)
 		public @ResponseBody List<Cliente> get(@PathVariable("id") int param) {
@@ -119,6 +119,20 @@ public class ClienteController {
 		public List<Cliente> getByIdadeLessThanEqual(@PathVariable ("idade") Integer idade){
 			
 			return clienteRepository.findByIdadeLessThanEqual(idade);
+		}
+		
+		@GetMapping("/nomecomecandoidademenorigual/{prefixo}/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndIdadeLessThan(@PathVariable ("prefixo") String qualquer, @PathVariable("idade") Integer idade){
+			
+			return clienteRepository.findByNomeStartingWithAndIdadeLessThanEqual(qualquer, idade);
+		}
+		
+		@GetMapping("/idadeentre/{valor1}/{valor2}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByIdadeBetween(@PathVariable ("valor1") Integer idade1, @PathVariable ("valor2") Integer idade2){
+			
+			return clienteRepository.findByIdadeBetween(idade1, idade2);
 		}
 		
 		private void setMaturidadeNivel3(Cliente cliente) {

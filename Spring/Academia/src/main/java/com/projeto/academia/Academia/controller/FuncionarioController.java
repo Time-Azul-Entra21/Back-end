@@ -91,6 +91,132 @@ public class FuncionarioController {
 		
 	}
 	
+	@GetMapping("/buscarnome/{nome}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByNome(@PathVariable("nome") String nome){
+		
+		return funcionarioRepository.findByNome(nome);
+	}
+	
+	@GetMapping("/nomecomecando/{prefixo}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByStartWith(@PathVariable("prefixo") String letra){
+		
+		return funcionarioRepository.findByNomeStartingWith(letra);
+	}
+	
+	@GetMapping("/buscaridade/{idade}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByIdade(@PathVariable("idade") Integer idade){
+		
+		return funcionarioRepository.findByIdade(idade);
+	}
+	
+	@GetMapping("/idademaiorque/{idade}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByIdadeGreaterThan(@PathVariable("idade") Integer idade){
+		
+		return funcionarioRepository.findByIdadeGreaterThan(idade);
+	}
+	
+	@GetMapping("/idademenorque/{idade}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByIdadeLessThan(@PathVariable("idade") Integer idade){
+		
+		return funcionarioRepository.findByIdadeLessThan(idade);
+	}
+	
+	@GetMapping("/idadeentre/{valor1}/{valor2}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByIdadeBetween(@PathVariable("valor1") Integer valor1, @PathVariable("valor2") Integer valor2){
+		
+		return funcionarioRepository.findByIdadeBetween(valor1, valor2);
+	}
+	
+	@GetMapping("/nomecomecandoidademaior/{prefixo}/{idade}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByStartWithAndIdadeGreaterThan(@PathVariable("prefixo") String letra, @PathVariable("idade") Integer idade){
+		
+		return funcionarioRepository.findByNomeStartingWithAndIdadeGreaterThan(letra, idade);
+	}
+	
+	@GetMapping("/nomecomecandoidademenor/{prefixo}/{idade}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByStartWithAndIdadeLessThan(@PathVariable("prefixo") String letra, @PathVariable("idade") Integer idade){
+		
+		return funcionarioRepository.findByNomeStartingWithAndIdadeLessThan(letra, idade);
+	}
+	
+	@GetMapping("/nomecomecandoidadeentre/{prefixo}/{valor1}/{valor2}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByStartWithAndIdadeBetween(@PathVariable("prefixo") String letra, @PathVariable("valor1") Integer valor1, @PathVariable ("valor2") Integer valor2){
+		
+		return funcionarioRepository.findByNomeStartingWithAndIdadeBetween(letra, valor1, valor2);
+	}
+	
+	@GetMapping("/buscarfuncao/{funcao}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByFuncao(@PathVariable("funcao") String funcao){
+		
+		return funcionarioRepository.findByFuncao(funcao);
+	}
+	
+	@GetMapping("/buscarturno/{turno}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByTurno(@PathVariable("turno") String turno){
+		
+		return funcionarioRepository.findByTurno(turno);
+	}
+	
+	@GetMapping("/buscarcpf/{cpf}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByCpf(@PathVariable("cpf") String cpf){
+		
+		return funcionarioRepository.findByCpf(cpf);
+	}
+	
+	@GetMapping("/buscartel/{telefone}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByTelefone(@PathVariable("telefone") String telefone){
+		
+		return funcionarioRepository.findByTelefone(telefone);
+	}
+	
+	@GetMapping("/buscarendereco/{endereco}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByEndereco(@PathVariable("endereco") String endereco){
+		
+		return funcionarioRepository.findByEndereco(endereco);
+	}
+	
+	@GetMapping("/buscarsalario/{salario}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getBySalario(@PathVariable("salario") Integer salario){
+		
+		return funcionarioRepository.findBySalario(salario);
+	}
+	
+	@GetMapping("/salariomaiorque/{salario}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getBySalarioGreaterThan(@PathVariable("salario") Integer salario){
+		
+		return funcionarioRepository.findBySalarioGreaterThan(salario);
+	}
+	
+	@GetMapping("/salariomenorque/{salario}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getBySalarioLessThan(@PathVariable("salario") Integer salario){
+		
+		return funcionarioRepository.findBySalarioLessThan(salario);
+	}
+	
+	@GetMapping("/salarioentre/{valor1}/{valor2}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getBySalarioBetween(@PathVariable("valor1") Integer valor1, @PathVariable("valor2") Integer valor2){
+		
+		return  funcionarioRepository.findBySalarioBetween(valor1, valor2);
+	}
+ 	
 	private void setMaturidadeNivel3(Funcionario funcionario) {
 
 		ArrayList<String> headers = new ArrayList();

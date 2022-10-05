@@ -16,4 +16,8 @@ public interface IClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	public List<Cliente> findByIdadeLessThanEqual(Integer idade);
 	
+	public List<Cliente> findByNomeStartingWithAndIdadeLessThanEqual(String prefixo, Integer idade);
+	
+	public List<Cliente> findByIdadeBetween(Integer valor1, Integer valor2);
+	
 }
