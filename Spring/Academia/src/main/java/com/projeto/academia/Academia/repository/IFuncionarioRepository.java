@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.projeto.academia.Academia.Responsavel;
 import com.projeto.academia.Academia.model.Funcionario;
 
+@Responsavel(quemFez = Responsavel.QuemFez.GEOVANI)
 public interface IFuncionarioRepository extends JpaRepository<Funcionario, Integer>{
 	
 	public List<Funcionario> findByNome(String nome);

@@ -22,11 +22,11 @@ public class Cliente extends MaturidadeNivel3 {
 	private Integer idade;
 	private String telefone;
 	private String endereco;
-	private String tipo_plano;
-	private String numero_cartao;
+	private String tipoplano;
+	private String numerocartao;
 	
-	public Cliente(Integer id,String cpf, String nome, Integer idade, String telefone, String endereco, String tipo_plano,
-			String numero_cartao) {
+	public Cliente(Integer id,String cpf, String nome, Integer idade, String telefone, String endereco, String tipoplano,
+			String numerocartao) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
@@ -34,8 +34,8 @@ public class Cliente extends MaturidadeNivel3 {
 		this.idade = idade;
 		this.telefone = telefone;
 		this.endereco = endereco;
-		this.tipo_plano = tipo_plano;
-		this.numero_cartao = numero_cartao;
+		this.tipoplano = tipoplano;
+		this.numerocartao = numerocartao;
 	}
 	
 	public Cliente() {
@@ -90,20 +90,20 @@ public class Cliente extends MaturidadeNivel3 {
 		this.endereco = endereco;
 	}
 
-	public String getTipo_plano() {
-		return tipo_plano;
+	public String getTipoplano() {
+		return tipoplano;
 	}
 
-	public void setTipo_plano(String tipo_plano) {
-		this.tipo_plano = tipo_plano;
+	public void setTipoplano(String tipoplano) {
+		this.tipoplano = tipoplano;
 	}
 
-	public String getNumero_cartao() {
-		return numero_cartao;
+	public String getNumerocartao() {
+		return numerocartao;
 	}
 
-	public void setNumero_cartao(String numero_cartao) {
-		this.numero_cartao = numero_cartao;
+	public void setNumerocartao(String numerocartao) {
+		this.numerocartao = numerocartao;
 	}
 	
 	

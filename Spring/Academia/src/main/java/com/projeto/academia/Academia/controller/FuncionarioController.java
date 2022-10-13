@@ -21,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeto.academia.Academia.AcademiaApplication;
+import com.projeto.academia.Academia.Responsavel;
+import com.projeto.academia.Academia.Responsavel.QuemFez;
 import com.projeto.academia.Academia.model.Funcionario;
 import com.projeto.academia.Academia.model.ItemNivel3;
 import com.projeto.academia.Academia.repository.IFuncionarioRepository;
@@ -28,6 +30,7 @@ import com.projeto.academia.Academia.repository.IFuncionarioRepository;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/funcionarios")
+@Responsavel(quemFez = Responsavel.QuemFez.GEOVANI)
 public class FuncionarioController {
 	
 	@Autowired

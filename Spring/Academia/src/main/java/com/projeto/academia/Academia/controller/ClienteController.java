@@ -21,13 +21,16 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeto.academia.Academia.AcademiaApplication;
+import com.projeto.academia.Academia.Responsavel;
 import com.projeto.academia.Academia.model.Cliente;
+import com.projeto.academia.Academia.model.Funcionario;
 import com.projeto.academia.Academia.model.ItemNivel3;
 import com.projeto.academia.Academia.repository.IClienteRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/clientes")
+@Responsavel(quemFez = Responsavel.QuemFez.GEOVANI)
 public class ClienteController {
 	
 	
@@ -76,8 +79,8 @@ public class ClienteController {
 				atual.setIdade(clienteEditado.getIdade());
 				atual.setEndereco(clienteEditado.getEndereco());
 				atual.setTelefone(clienteEditado.getTelefone());
-				atual.setTipo_plano(clienteEditado.getTipo_plano());
-				atual.setNumero_cartao(clienteEditado.getNumero_cartao());
+				atual.setTipoplano(clienteEditado.getTipoplano());
+				atual.setNumerocartao(clienteEditado.getNumerocartao());
 				clienteRepository.save(atual);
 				return clienteRepository.findById(param);
 			}
@@ -92,47 +95,109 @@ public class ClienteController {
 			
 		}
 		
-		@GetMapping("/idademaiorigual/{idade}")
+		@GetMapping("/buscarnome/{nome}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getByIdadeGreaterThanEqual(@PathVariable ("idade") Integer idade ){
+		public List<Cliente> getByNome(@PathVariable("nome") String nome){
 			
-			return clienteRepository.findByIdadeGreaterThanEqual(idade);
+			return clienteRepository.findByNome(nome);
 		}
 		
 		@GetMapping("/nomecomecando/{prefixo}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getStartWith(@PathVariable ("prefixo") String tantoFaz){
+		public List<Cliente> getByStartWith(@PathVariable("prefixo") String letra){
 			
-			return clienteRepository.findByNomeStartingWith(tantoFaz);
+			return clienteRepository.findByNomeStartingWith(letra);
 		}
 		
-		//Que código grande pqp
-		@GetMapping("/nomecomecandoidademaiorigual/{prefixo}/{idade}")
+		@GetMapping("/buscaridade/{idade}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getByStartWithAndIdadeGreaterThan(@PathVariable ("prefixo") String tantoFaz, @PathVariable("idade") Integer idade){
+		public List<Cliente> getByIdade(@PathVariable("idade") Integer idade){
 			
-			return clienteRepository.findByNomeStartingWithAndIdadeGreaterThanEqual(tantoFaz, idade);
+			return clienteRepository.findByIdade(idade);
 		}
 		
-		@GetMapping("/idademenorigual/{idade}")
+		@GetMapping("/idademaiorque/{idade}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getByIdadeLessThanEqual(@PathVariable ("idade") Integer idade){
+		public List<Cliente> getByIdadeGreaterThan(@PathVariable("idade") Integer idade){
 			
-			return clienteRepository.findByIdadeLessThanEqual(idade);
+			return clienteRepository.findByIdadeGreaterThan(idade);
 		}
 		
-		@GetMapping("/nomecomecandoidademenorigual/{prefixo}/{idade}")
+		@GetMapping("/idademenorque/{idade}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getByStartWithAndIdadeLessThan(@PathVariable ("prefixo") String qualquer, @PathVariable("idade") Integer idade){
+		public List<Cliente> getByIdadeLessThan(@PathVariable("idade") Integer idade){
 			
-			return clienteRepository.findByNomeStartingWithAndIdadeLessThanEqual(qualquer, idade);
+			return clienteRepository.findByIdadeLessThan(idade);
 		}
 		
 		@GetMapping("/idadeentre/{valor1}/{valor2}")
 		@ResponseStatus(HttpStatus.OK)
-		public List<Cliente> getByIdadeBetween(@PathVariable ("valor1") Integer idade1, @PathVariable ("valor2") Integer idade2){
+		public List<Cliente> getByIdadeBetween(@PathVariable("valor1") Integer valor1, @PathVariable("valor2") Integer valor2){
 			
-			return clienteRepository.findByIdadeBetween(idade1, idade2);
+			return clienteRepository.findByIdadeBetween(valor1, valor2);
+		}
+		
+		@GetMapping("/nomecomecandoidademaior/{prefixo}/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndIdadeGreaterThan(@PathVariable("prefixo") String letra, @PathVariable("idade") Integer idade){
+			
+			return clienteRepository.findByNomeStartingWithAndIdadeGreaterThan(letra, idade);
+		}
+		
+		@GetMapping("/nomecomecandoidademenor/{prefixo}/{idade}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndIdadeLessThan(@PathVariable("prefixo") String letra, @PathVariable("idade") Integer idade){
+			
+			return clienteRepository.findByNomeStartingWithAndIdadeLessThan(letra, idade);
+		}
+		
+		@GetMapping("/nomecomecandoidadeentre/{prefixo}/{valor1}/{valor2}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndIdadeBetween(@PathVariable("prefixo") String letra, @PathVariable("valor1") Integer valor1, @PathVariable ("valor2") Integer valor2){
+			
+			return clienteRepository.findByNomeStartingWithAndIdadeBetween(letra, valor1, valor2);
+		}
+		
+		@GetMapping("/nomecomecandotipoplano/{prefixo}/{tipoplano}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByStartWithAndTipoplano(@PathVariable("prefixo") String letra, @PathVariable("tipoplano") String tipoplano){
+			
+			return clienteRepository.findByNomeStartingWithAndTipoplano(letra, tipoplano);
+		}
+		
+		@GetMapping("/buscarcpf/{cpf}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByCpf(@PathVariable("cpf") String cpf){
+			
+			return clienteRepository.findByCpf(cpf);
+		}
+		
+		@GetMapping("/buscartel/{telefone}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByTelefone(@PathVariable("telefone") String telefone){
+			
+			return clienteRepository.findByTelefone(telefone);
+		}
+		
+		@GetMapping("/buscarendereco/{endereco}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByEndereco(@PathVariable("endereco") String endereco){
+			
+			return clienteRepository.findByEndereco(endereco);
+		}
+		
+		@GetMapping("/buscartipoplano/{tipoplano}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByTipoplano(@PathVariable("tipoplano") String tipoplano){
+			
+			return clienteRepository.findByTipoplano(tipoplano);
+		}
+		
+		@GetMapping("/buscarnumerocartao/{numerocartao}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByNumerocartao(@PathVariable("numerocartao") String numerocartao){
+			
+			return clienteRepository.findByNumerocartao(numerocartao);
 		}
 		
 		private void setMaturidadeNivel3(Cliente cliente) {

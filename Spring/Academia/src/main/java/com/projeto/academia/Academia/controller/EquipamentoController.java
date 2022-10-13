@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeto.academia.Academia.AcademiaApplication;
+import com.projeto.academia.Academia.Responsavel;
 import com.projeto.academia.Academia.model.Equipamento;
 import com.projeto.academia.Academia.model.ItemNivel3;
 import com.projeto.academia.Academia.repository.IEquipamentoRepository;
@@ -28,6 +29,7 @@ import com.projeto.academia.Academia.repository.IEquipamentoRepository;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/equipamentos")
+@Responsavel(quemFez = Responsavel.QuemFez.GEOVANI)
 public class EquipamentoController {
 
 	@Autowired
@@ -80,6 +82,48 @@ public class EquipamentoController {
 			equipamentoRepository.deleteById(param);
 			return equipamentoRepository.existsById(param);
 			
+		}
+		
+		@GetMapping("/buscarnome/{nome}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByNome(@PathVariable("nome") String nome){
+			
+			return equipamentoRepository.findByNome(nome);
+		}
+		
+		@GetMapping("/nomecomecando/{prefixo}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByStartWith(@PathVariable("prefixo") String letra){
+			
+			return equipamentoRepository.findByNomeStartingWith(letra);
+		}
+		
+		@GetMapping("/buscarquantidade/{valor}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByQuantidade(@PathVariable("valor") Integer valor){
+			
+			return equipamentoRepository.findByQuantidade(valor);
+		}
+		
+		@GetMapping("/quantidadeentre/{valor1}/{valor2}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByQuantidadeBetween(@PathVariable("valor1") Integer valor1, @PathVariable("valor2") Integer valor2){
+			
+			return equipamentoRepository.findByQuantidadeBetween(valor1, valor2);
+		}
+		
+		@GetMapping("/quantidademaiorque/{valor}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByQuantidadeGreaterThan(@PathVariable("valor") Integer valor){
+			
+			return equipamentoRepository.findByQuantidadeGreaterThan(valor);
+		}
+		
+		@GetMapping("/quantidademenorque/{valor}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Equipamento> getByQuantidadeLessThan(@PathVariable("valor") Integer valor){
+			
+			return equipamentoRepository.findByQuantidadeLessThan(valor);
 		}
 		
 		private void setMaturidadeNivel3(Equipamento equipamento) {
