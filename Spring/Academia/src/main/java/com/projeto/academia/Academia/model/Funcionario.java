@@ -25,9 +25,11 @@ public class Funcionario extends MaturidadeNivel3 {
 	private Integer salario;
 	private String turno;
 	private String funcao;
+	private String username;
+	private String password;
 	
 	public Funcionario(Integer id, String cpf, String nome, Integer idade, String telefone, String endereco, Integer salario,
-			String turno, String funcao) {
+			String turno, String funcao, String username, String password) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
@@ -38,6 +40,8 @@ public class Funcionario extends MaturidadeNivel3 {
 		this.salario = salario;
 		this.turno = turno;
 		this.funcao = funcao;
+		this.username = username;
+		this.password = password;
 	}
 	
 	public Funcionario() {
@@ -115,6 +119,21 @@ public class Funcionario extends MaturidadeNivel3 {
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
 	}
-	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.projeto.academia.Academia.Responsavel;
+import com.projeto.academia.Academia.model.Cliente;
 import com.projeto.academia.Academia.model.Funcionario;
 
 @Responsavel(quemFez = Responsavel.QuemFez.GEOVANI)
@@ -45,5 +46,11 @@ public interface IFuncionarioRepository extends JpaRepository<Funcionario, Integ
 	public List<Funcionario> findBySalarioGreaterThan(Integer salario);
 	
 	public List<Funcionario> findBySalarioLessThan(Integer salario);
+	
+	public List<Funcionario> findByUsername(String username);
+	
+	public List<Funcionario> findByUsernameStartingWith(String prefixo);
+	
+	public List<Funcionario> findByPassword(String senha);
 		
 }

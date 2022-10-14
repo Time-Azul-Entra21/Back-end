@@ -41,4 +41,10 @@ public interface IClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	public List<Cliente> findByNumerocartao(String numerocartao);
 	
+	public List<Cliente> findByUsername(String username);
+	
+	public List<Cliente> findByUsernameStartingWith(String prefixo);
+	
+	public List<Cliente> findByPassword(String senha);
+	
 }

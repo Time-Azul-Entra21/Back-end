@@ -24,9 +24,11 @@ public class Cliente extends MaturidadeNivel3 {
 	private String endereco;
 	private String tipoplano;
 	private String numerocartao;
+	private String username;
+	private String password;
 	
-	public Cliente(Integer id,String cpf, String nome, Integer idade, String telefone, String endereco, String tipoplano,
-			String numerocartao) {
+	public Cliente(Integer id, String cpf, String nome, Integer idade, String telefone, String endereco,
+			String tipoplano, String numerocartao, String username, String password) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
@@ -36,12 +38,14 @@ public class Cliente extends MaturidadeNivel3 {
 		this.endereco = endereco;
 		this.tipoplano = tipoplano;
 		this.numerocartao = numerocartao;
+		this.username = username;
+		this.password = password;
 	}
 	
 	public Cliente() {
 		super();
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -105,8 +109,21 @@ public class Cliente extends MaturidadeNivel3 {
 	public void setNumerocartao(String numerocartao) {
 		this.numerocartao = numerocartao;
 	}
-	
-	
-	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

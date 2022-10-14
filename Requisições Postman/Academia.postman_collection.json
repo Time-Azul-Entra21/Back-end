@@ -1,0 +1,1996 @@
+{
+	"info": {
+		"_postman_id": "62cb1ca0-c94b-45e1-843e-5e4519cd3f83",
+		"name": "Academia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23249988"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "ListAll Clientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						},
+						"description": "# Listando todos os clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"123.456.789-10\",\r\n    \"nome\":\"Geovani\",\r\n    \"idade\":20,\r\n    \"endereco\":\"Rua-Bragança 80\",\r\n    \"telefone\":\"4002-8922\",\r\n    \"tipo_plano\":\"Mensal\",\r\n    \"numero_cartao\":\"1234-56789\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"987.654.321-01\",\r\n    \"nome\":\"Adrielle\",\r\n    \"idade\":20,\r\n    \"endereco\":\"Casa2\",\r\n    \"telefone\":\"1234-1234\",\r\n    \"tipo_plano\":\"Anual\",\r\n    \"numero_cartao\":\"8282-2141\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"2"
+							]
+						},
+						"description": "# Atualizando um cliente por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"2"
+							]
+						},
+						"description": "# Deletando um Cliente via ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ListBy ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"3"
+							]
+						},
+						"description": "# Listando por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarnome/Geovani",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarnome",
+								"Geovani"
+							]
+						},
+						"description": "# Finding by name"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/nomecomecando/g",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"nomecomecando",
+								"g"
+							]
+						},
+						"description": "# Finding by the Starting Letter of the Name"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Idade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscaridade/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscaridade",
+								"20"
+							]
+						},
+						"description": "# Finding by age (idade)"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy IdadeGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/idademaiorque/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"idademaiorque",
+								"18"
+							]
+						},
+						"description": "# Finding by age (idade) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy IdadeLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/idademenorque/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"idademenorque",
+								"30"
+							]
+						},
+						"description": "# Finding by age (idade) lesser than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy AgeBetween",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/idadeentre/18/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"idadeentre",
+								"18",
+								"22"
+							]
+						},
+						"description": "# Finding by the age (idade) between the values"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and IdadeGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/nomecomecandoidademaior/g/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"nomecomecandoidademaior",
+								"g",
+								"18"
+							]
+						},
+						"description": "# Finding by the first letter of the name and the age (idade) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and IdadeLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/nomecomecandoidademenor/g/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"nomecomecandoidademenor",
+								"g",
+								"30"
+							]
+						},
+						"description": "# Finding by the first letter in the name and the age (idade) less than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and Idade Between",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/nomecomecandoidadeentre/g/18/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"nomecomecandoidadeentre",
+								"g",
+								"18",
+								"30"
+							]
+						},
+						"description": "# Finding by the first name letter and the age (idade) between the values"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and TipoPlano",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/nomecomecandotipoplano/g/mensal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"nomecomecandotipoplano",
+								"g",
+								"mensal"
+							]
+						},
+						"description": "# Finding by the first name letter and the plan type (tipo plano)"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Cpf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarcpf/123.456.789-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarcpf",
+								"123.456.789-10"
+							]
+						},
+						"description": "# Finding by the CPF value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Telephone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscartel/4002-8922",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscartel",
+								"4002-8922"
+							]
+						},
+						"description": "# Finding by the telephone number value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Endereco",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarendereco/Rua-Bragança 80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarendereco",
+								"Rua-Bragança 80"
+							]
+						},
+						"description": "# Finding by the adress (endereco) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy TipoPlano",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscartipoplano/mensal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscartipoplano",
+								"mensal"
+							]
+						},
+						"description": "# Finding by the plan type (tipo plano) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy NumeroCartao",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarnumerocartao/1234-56789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarnumerocartao",
+								"1234-56789"
+							]
+						},
+						"description": "# Finding by the card number (numero cartao) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Username",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarusuario/geo2002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarusuario",
+								"geo2002"
+							]
+						},
+						"description": "# Finding by the username (usuario) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Username StartWith",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/usuariocomecando/g",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"usuariocomecando",
+								"g"
+							]
+						},
+						"description": "# Finding by the first letter in the username"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Senha",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/clientes/buscarsenha/ocara",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"buscarsenha",
+								"ocara"
+							]
+						},
+						"description": "# Finding by the password (senha) (Why would you do that for? Ew)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionarios",
+			"item": [
+				{
+					"name": "ListAll Funcionarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListBy ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Funcionario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"312.532.162-21\",\r\n    \"nome\":\"Jefferson\",\r\n    \"idade\":30,\r\n    \"endereco\":\"Rua-Braganca 91\",\r\n    \"telefone\":\"8942-6512\",\r\n    \"salario\":3500,\r\n    \"turno\":\"Vespertino\",\r\n    \"funcao\":\"PT\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios"
+							]
+						},
+						"description": "# Criando um funcionário"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Funcionario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"312.532.162-21\",\r\n    \"nome\":\"Marcos\",\r\n    \"idade\":30,\r\n    \"endereco\":\"Rua-Braganca 91\",\r\n    \"telefone\":\"8942-6512\",\r\n    \"salario\":3500,\r\n    \"turno\":\"Vespertino\",\r\n    \"funcao\":\"PT\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Funcionario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarnome/carlos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarnome",
+								"carlos"
+							]
+						},
+						"description": "# Finding by the name value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/nomecomecando/c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"nomecomecando",
+								"c"
+							]
+						},
+						"description": "# Finding by the first letter of the name"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Idade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscaridade/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscaridade",
+								"32"
+							]
+						},
+						"description": "# Finding by the age (idade) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy IdadeGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/idademaiorque/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"idademaiorque",
+								"18"
+							]
+						},
+						"description": "# Finding by the age (idade) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy IdadeLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/idademenorque/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"idademenorque",
+								"40"
+							]
+						},
+						"description": "# Finding by the age (idade) less than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy IdadeBetween",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/idadeentre/20/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"idadeentre",
+								"20",
+								"40"
+							]
+						},
+						"description": "# Finding by the age (idade) between the values"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and IdadeGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/nomecomecandoidademaior/c/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"nomecomecandoidademaior",
+								"c",
+								"18"
+							]
+						},
+						"description": "# Finding by the first letter in the name and the age (idade) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and IdadeLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/nomecomecandoidademenor/c/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"nomecomecandoidademenor",
+								"c",
+								"40"
+							]
+						},
+						"description": "# Finding by the first letter in the name and the age (idade) less than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith and IdadeBetween",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/nomecomecandoidadeentre/c/20/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"nomecomecandoidadeentre",
+								"c",
+								"20",
+								"40"
+							]
+						},
+						"description": "# Finding by the first letter in the name and the age (idade) between the values"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Funcao",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarfuncao/recepcionista",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarfuncao",
+								"recepcionista"
+							]
+						},
+						"description": "# Finding by the occupation (funcao)"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Turno",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarturno/matutino",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarturno",
+								"matutino"
+							]
+						},
+						"description": "# Finding by the period of work (turno)"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Cpf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarcpf/641.431.672-12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarcpf",
+								"641.431.672-12"
+							]
+						},
+						"description": "# Finding by the cpf value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Telephone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscartel/4521-4562",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscartel",
+								"4521-4562"
+							]
+						},
+						"description": "# Finding by the telephone value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Endereco",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarendereco/Rua Pelotas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarendereco",
+								"Rua Pelotas"
+							]
+						},
+						"description": "# Finding by the Adress (endereco) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Salario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarsalario/1800",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarsalario",
+								"1800"
+							]
+						},
+						"description": "# Finding by the wage (salario)"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy SalarioGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/salariomaiorque/1300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"salariomaiorque",
+								"1300"
+							]
+						},
+						"description": "# Finding by the wage (salario) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy SalarioLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/salariomenorque/3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"salariomenorque",
+								"3000"
+							]
+						},
+						"description": "# Finding by the wage (salario) less than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy SalarioBetween",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/salarioentre/1300/3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"salarioentre",
+								"1300",
+								"3000"
+							]
+						},
+						"description": "# Finding by the wage (salario) between the values"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Username",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarusuario/theman",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarusuario",
+								"theman"
+							]
+						},
+						"description": "# Finding by the username (usuario) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Username StartWith",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/usuariocomecando/t",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"usuariocomecando",
+								"t"
+							]
+						},
+						"description": "# Finding by the username (usuario) first letter"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Senha",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/funcionarios/buscarsenha/9602",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscarsenha",
+								"9602"
+							]
+						},
+						"description": "# Finding by the password (senha) value (don't do that, pls ew)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipamentos",
+			"item": [
+				{
+					"name": "ListAll Equipamentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos"
+							]
+						},
+						"description": "# Listando todos os equipamentos"
+					},
+					"response": []
+				},
+				{
+					"name": "ListBy ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Equipamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Colchonete\",\r\n    \"quantidade\":35\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/equipamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos"
+							]
+						},
+						"description": "# Criando um equipamento"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Equipamento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Haltere\",\r\n    \"quantidade\":15\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"1"
+							]
+						},
+						"description": "Atualizando um Equipamento"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Equipamento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"1"
+							]
+						},
+						"description": "# Deletando um equipamento por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/buscarnome/haltere",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"buscarnome",
+								"haltere"
+							]
+						},
+						"description": "# Finding by the name value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Name StartWith",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/nomecomecando/h",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"nomecomecando",
+								"h"
+							]
+						},
+						"description": "# Finding by the first letter in the name"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy Quantidade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/buscarquantidade/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"buscarquantidade",
+								"15"
+							]
+						},
+						"description": "# Finding by quantity (quantidade) value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy QuantidadeGreaterThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/quantidademaiorque/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"quantidademaiorque",
+								"5"
+							]
+						},
+						"description": "# Finding by quantity (quantidade) greater than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy QuantidadeLessThan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/quantidademenorque/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"quantidademenorque",
+								"30"
+							]
+						},
+						"description": "# Finding by the quantity (quantidade) less than the value"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBy QuantidadeBetween",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/equipamentos/quantidadeentre/10/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"equipamentos",
+								"quantidadeentre",
+								"10",
+								"30"
+							]
+						},
+						"description": "# Finding by quantity (quantidade) between the values"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

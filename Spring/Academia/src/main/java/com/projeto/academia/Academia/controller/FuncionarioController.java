@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeto.academia.Academia.AcademiaApplication;
 import com.projeto.academia.Academia.Responsavel;
 import com.projeto.academia.Academia.Responsavel.QuemFez;
+import com.projeto.academia.Academia.model.Cliente;
 import com.projeto.academia.Academia.model.Funcionario;
 import com.projeto.academia.Academia.model.ItemNivel3;
 import com.projeto.academia.Academia.repository.IFuncionarioRepository;
@@ -218,6 +219,45 @@ public class FuncionarioController {
 	public List<Funcionario> getBySalarioBetween(@PathVariable("valor1") Integer valor1, @PathVariable("valor2") Integer valor2){
 		
 		return  funcionarioRepository.findBySalarioBetween(valor1, valor2);
+	}
+	
+	@GetMapping("/buscarusuario/{username}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByUsername(@PathVariable("username") String username){
+		
+		return funcionarioRepository.findByUsername(username);
+	}
+	
+	@GetMapping("/usuariocomecando/{prefixo}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByUsernameStartWith(@PathVariable("prefixo") String letra){
+		
+		return funcionarioRepository.findByUsernameStartingWith(letra);
+	}
+	
+	//nao sei porque alguem buscaria outro pela senha dele, mas ta ai \/('-')\/
+	@GetMapping("/buscarsenha/{senha}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Funcionario> getByPassword(@PathVariable("senha") String senha){
+		
+		return funcionarioRepository.findByPassword(senha);
+	}
+	
+	@Responsavel(quemFez = Responsavel.QuemFez.HENRIQUE)
+	@PostMapping("/login")
+	@ResponseStatus(HttpStatus.OK)
+	public @ResponseBody List<Funcionario> login(@RequestBody Funcionario credencial) {
+		
+		List<Funcionario> response = funcionarioRepository.findAll().stream()
+				.filter(funcionario -> funcionario.getUsername().equals(credencial.getUsername())
+						&& funcionario.getPassword().equals(credencial.getPassword()))
+				.toList();
+		response.forEach(funcionario -> {
+			setMaturidadeNivel3(funcionario);
+			
+		});
+		
+		return response;
 	}
  	
 	private void setMaturidadeNivel3(Funcionario funcionario) {

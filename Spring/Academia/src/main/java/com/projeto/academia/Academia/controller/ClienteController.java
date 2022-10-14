@@ -200,6 +200,45 @@ public class ClienteController {
 			return clienteRepository.findByNumerocartao(numerocartao);
 		}
 		
+		@GetMapping("/buscarusuario/{username}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByUsername(@PathVariable("username") String username){
+			
+			return clienteRepository.findByUsername(username);
+		}
+		
+		@GetMapping("/usuariocomecando/{prefixo}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByUsernameStartWith(@PathVariable("prefixo") String letra){
+			
+			return clienteRepository.findByUsernameStartingWith(letra);
+		}
+		
+		//nao sei porque alguem buscaria outro pela senha dele, mas ta ai \/('-')\/
+		@GetMapping("/buscarsenha/{senha}")
+		@ResponseStatus(HttpStatus.OK)
+		public List<Cliente> getByPassword(@PathVariable("senha") String senha){
+			
+			return clienteRepository.findByPassword(senha);
+		}
+		
+		@Responsavel(quemFez = Responsavel.QuemFez.HENRIQUE)
+		@PostMapping("/login")
+		@ResponseStatus(HttpStatus.OK)
+		public @ResponseBody List<Cliente> login(@RequestBody Cliente credencial) {
+			
+			List<Cliente> response = clienteRepository.findAll().stream()
+					.filter(cliente -> cliente.getUsername().equals(credencial.getUsername())
+							&& cliente.getPassword().equals(credencial.getPassword()))
+					.toList();
+			response.forEach(cliente -> {
+				setMaturidadeNivel3(cliente);
+				
+			});
+			
+			return response;
+		}
+		
 		private void setMaturidadeNivel3(Cliente cliente) {
 
 			ArrayList<String> headers = new ArrayList();
